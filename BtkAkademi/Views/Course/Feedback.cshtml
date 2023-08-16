@@ -1,0 +1,19 @@
+
+@model Candidate
+
+<div>
+<h3 class="display-4">Congratulatıons @Model.FullName</h3>
+<p class="lead">Your Applications Has Been <mark>Acceted</mark></p>
+<p class="lead">Many Thanks for your interest.</p>
+<hr/>
+<blockquote class="blockquote">
+You Have Enrolled to @Model.SelectedCourse course
+</blockquote>
+<p class="text-muted">You Applied at @Model.ApplyAt</p>
+
+<div class="btn-group">
+<a class="btn btn-outline-success" asp-action="Index">Applications</a>
+<a class="btn btn-succes" asp-action="Index" asp-controller="Home">Home</a>
+
+</div>
+</div>
