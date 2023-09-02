@@ -1,4 +1,6 @@
-﻿@model Order
+﻿
+
+@model Order
 
 @{
     var total = Model.Lines.Sum(c => c.Product.Price * c.Quantity);
@@ -18,13 +20,13 @@
         <p>@Model?.City</p>
         <p class="rounded-2 p-3">
             <span class="bg-warning p-2">Shipped</span>
-            <span class="bg-info p-2">@(Model.Shipped? "Completed" : "In Progress")</span>
+            <span class="bg-info p-2">@(Model.Shipped ? "Completed" : "In Progress")</span>
 
         </p>
     </div>
     <div class="col-md-9">
         <ul class="list-group">
-            @foreach (var cartItem in Model?.Lines)
+            @foreach (var cartItem in Model.Lines)
             {
                 <li class="list-group-item d-flex justify-content-between brand">
                     <b>@cartItem.Product.ProductName</b>
@@ -43,7 +45,7 @@
         <div class="text-center mt-2 p-2">
             <form method="post" asp-action="Complete">
                 <input type="hidden" name="id" value="@Model.OrderId"/>
-                <button type="submit" class="btn btn-primary" disabled="@Model.Shipped">
+                <button type="submit" class="btn btn-primary" @*disabled="@Model.Shipped"*@>
                     Complete
                 </button>
             </form>
